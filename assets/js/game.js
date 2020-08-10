@@ -6,7 +6,9 @@ var playerMoney = 10;
 console.log(playerName, playerAttack, playerHealth, playerMoney);
 // log multiple variables at once by using console.log(playerName, playerAttack, playerHealth);
 
-var enemyName = "Roborto";
+var enemyNames = ["Roborto", "Amy Android", "Robo Trumble"];
+    enemyNames[0];
+    console.log(enemyNames);
 var enemyHealth = 50;
 var enemyAttack = 12;
 
@@ -72,7 +74,7 @@ var fight = function(){
     
 };
 
-fight();  
+// fight();  
 
 
 
