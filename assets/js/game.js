@@ -1,6 +1,6 @@
 var fight = function (enemy) {
     console.log(enemy);
-    
+
     // other logic...
     while (enemy.health > 0 && playerInfo.health > 0) {
         // ask user if they'd like to fight or run
@@ -83,8 +83,8 @@ var startGame = function () {
     for (var i = 0; i < enemyInfo.length; i++) {
         if (playerInfo.health > 0) {
             // let user know what round they are in, remember that arrays start at 0 so it needs to have 1 added to it
-            window.alert("Welcome to Robot Gladiators! Round" + (i + 1));
-
+            window.alert("Welcome to Battlebots! Round" + (i + 1));
+            debugger;
             var pickedEnemyObj = enemyInfo[i];
 
             pickedEnemyObj.health = randomNumber(40, 60);
@@ -164,12 +164,12 @@ var shop = function () {
             break;
         case "u":
             if (playerInfo.money >= 7) {
-                window.alert("Upgrading " + playerInfo.name +  "'s attack by 6 for 7 dollars.");
+                window.alert("Upgrading " + playerInfo.name + "'s attack by 6 for 7 dollars.");
 
                 //increase attack and decrease money
                 playerInfo.attack = playerInfo.attack + 6;
                 playerInfo.money = playerInfo.money - 7;
-            
+
             } else {
                 window.alert("You don't have enought money");
             }
@@ -189,24 +189,37 @@ var shop = function () {
 };
 
 //function to generate a random numeric value 
-var randomNumber = function(min, max) {
+var randomNumber = function (min, max) {
     var value = Math.floor(Math.random() * (max - min + 1) + min);
 
     return value;
 };
 
 // fight();
+var getPlayerName = function () {
+    var name = "";
+
+    // *********
+    while (name === "" || name === null) {
+        name = prompt("What is your robot's name?")
+    }
+    // **********
+
+    console.log("Your robot's name is " + name);
+    return name;
+};
 
 var playerInfo = {
+    name: getPlayerName(),
     name: window.prompt("What is your robot's name?"),
     health: 100,
     attack: 10,
     money: 10,
-    reset: function() {
+    reset: function () {
         this.health = 100;
         this.money = 10;
         this.attack = 10;
-    }, 
+    },
     refillHealth: function () {
         if (this.money >= 7) {
             window.alert("Refilling player's health by 20 for 7 dollars.");
@@ -221,7 +234,7 @@ var playerInfo = {
         if (this.money >= 7) {
             window.alert("Upgrading player's attack by 6 for 7 dollars.");
             this.attack += 6;
-            this.money -=7;
+            this.money -= 7;
         }
         else {
             window.alert("You don't have enough money!");
@@ -234,7 +247,7 @@ console.log(playerInfo.name, playerInfo.attack, playerInfo.health, playerInfo.mo
 // log multiple variables at once by using console.log(playerInfo.name, playerInfo.attack, playerInfo.health);
 
 var enemyInfo = [
-    { 
+    {
         name: "Roborto",
         attack: randomNumber(10, 14)
     },
@@ -242,7 +255,7 @@ var enemyInfo = [
         name: "Amy Android",
         attack: randomNumber(10, 14)
     },
-    {   
+    {
         name: "Robo Trumble",
         attack: randomNumber(10, 14)
     },
